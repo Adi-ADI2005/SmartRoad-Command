@@ -278,6 +278,7 @@ Open: `http://localhost:8000`
 - [ ] **Multi-city support** — Manage multiple city grids from one platform
 - [ ] **Predictive analytics** — 24-hour congestion forecasting using historical data
 - [ ] **Role-based access** — Admin / operator / viewer permission levels
+- [ ] **Accident Severity Prediction** — accident severity prediction and alert system
 
 ---
 
