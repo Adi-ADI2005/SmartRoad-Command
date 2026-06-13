@@ -1,0 +1,130 @@
+.kpi-panel {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kpi-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--success);
+  background: rgba(0,230,118,0.1);
+  border: 1px solid rgba(0,230,118,0.3);
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.kpi-live-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: status-pulse 1.5s ease-in-out infinite;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  flex: 1;
+}
+
+.kpi-card {
+  position: relative;
+  padding: 9px 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--kpi-color, var(--primary));
+  opacity: 0.6;
+}
+
+.kpi-card:hover { border-color: rgba(255,255,255,0.14); }
+
+.kpi-icon-wrap {
+  position: relative;
+  width: 30px; height: 30px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+}
+
+.kpi-icon-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  opacity: 0.12;
+  filter: blur(6px);
+}
+
+.kpi-body { flex: 1; min-width: 0; }
+
+.kpi-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kpi-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kpi-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+  margin-bottom: 2px;
+}
+
+.kpi-trend-inline {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.kpi-trend-inline i { font-size: 0.55rem; }
+.kpi-trend-inline.up   { color: var(--success); }
+.kpi-trend-inline.down { color: var(--danger); }

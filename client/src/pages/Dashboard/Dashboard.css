@@ -1,0 +1,106 @@
+.cmd-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #050816 0%, #0A1022 50%, #0F172A 100%);
+  padding: 0 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cmd-row { display: flex; gap: 16px; }
+
+/* Row 1: 70/30 split */
+.cmd-row-1 { align-items: stretch; min-height: 680px; }
+.cmd-col-camera { flex: 0 0 70%; min-width: 0; display: flex; flex-direction: column; }
+.cmd-col-kpi    { flex: 0 0 calc(30% - 16px); min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+
+/* Row 2: map full width */
+.cmd-row-2 > * { flex: 1; }
+
+@media (max-width: 1100px) {
+  .cmd-row-1 { flex-direction: column; min-height: auto; }
+  .cmd-col-camera, .cmd-col-kpi { flex: 1; }
+}
+
+/* ── Junction Camera Modal ── */
+.jcam-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(5, 8, 22, 0.88);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.jcam-modal {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(10, 16, 34, 0.97);
+  border: 1px solid rgba(0,229,255,0.25);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 60px rgba(0,229,255,0.14);
+}
+
+.jcam-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0,229,255,0.12);
+  gap: 10px;
+  background: rgba(0,229,255,0.04);
+}
+
+.jcam-hdr-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.jcam-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--primary);
+}
+
+.jcam-sub {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+.jcam-close {
+  background: rgba(255,77,109,0.12);
+  border: 1px solid rgba(255,77,109,0.4);
+  color: #FF4D6D;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.jcam-close:hover {
+  background: rgba(255,77,109,0.28);
+  box-shadow: 0 0 12px rgba(255,77,109,0.4);
+}
+
+.jcam-viewport {
+  position: relative;
+  height: 480px;
+  background: #000;
+  overflow: hidden;
+}

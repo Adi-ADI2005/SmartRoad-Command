@@ -1,0 +1,53 @@
+.notfound-page {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.nf-code {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(5rem, 15vw, 10rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--primary);
+  text-shadow: var(--glow);
+  line-height: 1;
+  margin-bottom: 1rem;
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.notfound-page h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.notfound-page p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.nf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--primary);
+  color: #050816;
+  font-family: 'Orbitron', monospace;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: .85rem 1.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: var(--glow);
+  transition: all .3s;
+}
+.nf-btn:hover { opacity: .85; }

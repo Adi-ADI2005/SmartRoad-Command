@@ -1,0 +1,146 @@
+/* ── Section wrapper ── */
+.rtc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rtc-section-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rtc-section-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.rtc-ws-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #00E5FF;
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 20px;
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rtc-ws-badge--tick {
+  color: #64748b;
+  background: rgba(100, 116, 139, 0.08);
+  border-color: rgba(100, 116, 139, 0.2);
+}
+
+/* ── 4-column grid ── */
+.rtc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 1200px) { .rtc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px)  { .rtc-grid { grid-template-columns: 1fr; } }
+
+/* ── Chart card ── */
+.rtc-card {
+  padding: 10px 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 172px;
+  min-height: 172px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.rtc-hdr {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.rtc-hdr-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.rtc-hdr-left > i { font-size: 0.85rem; flex-shrink: 0; }
+
+.rtc-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rtc-cur {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.rtc-live {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #334155;
+  text-transform: uppercase;
+}
+
+.rtc-live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  animation: rtc-dot-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes rtc-dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1);    }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.rtc-chart {
+  width: 100%;
+  height: 108px;
+  min-height: 108px;
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+/* ── Tooltip ── */
+.rtc-tooltip {
+  background: rgba(5, 8, 22, 0.94);
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.68rem;
+}
+
+.rtc-tooltip-label { color: #475569; margin-bottom: 2px; }
+.rtc-tooltip-val   { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.82rem; }
+
+/* ── Analytics row (old Charts component slot) — kept for any legacy usage ── */
+.analytics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}

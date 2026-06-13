@@ -1,0 +1,59 @@
+.stat-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 1200px) { .stat-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .stat-cards-grid { grid-template-columns: 1fr; } }
+
+.stat-card {
+  padding: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  cursor: default;
+  transition: all .3s;
+}
+
+.sc-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(0,229,255,0.08);
+  border: 1px solid;
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.sc-body { flex: 1; min-width: 0; }
+
+.sc-label {
+  font-size: .7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: .25rem;
+}
+
+.sc-value {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sc-trend {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: .2rem;
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+}
+.sc-trend.up   { color: var(--success); }
+.sc-trend.down { color: var(--danger); }

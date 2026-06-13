@@ -1,0 +1,201 @@
+.cmd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 90px;
+  padding: 0 20px;
+  background: rgba(5,8,22,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,229,255,0.15);
+  box-shadow: 0 4px 30px rgba(0,229,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+/* Brand */
+.ch-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.ch-logo {
+  position: relative;
+  width: 48px; height: 48px;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  color: var(--primary);
+  filter: drop-shadow(0 0 8px rgba(0,229,255,0.7));
+}
+
+.ch-logo-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,229,255,0.3);
+  animation: spin-slow 8s linear infinite;
+}
+
+.ch-titles { line-height: 1.2; }
+
+.ch-main {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.ch-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--primary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* Center */
+.ch-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ch-clock { text-align: center; }
+
+.ch-time {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.ch-date {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.ch-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.ch-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.ch-link i { font-size: 0.8rem; }
+
+.ch-link:hover {
+  color: var(--primary);
+  background: rgba(0,229,255,0.08);
+  border-color: rgba(0,229,255,0.2);
+}
+
+.ch-link.active {
+  color: var(--primary);
+  background: rgba(0,229,255,0.12);
+  border-color: rgba(0,229,255,0.35);
+  box-shadow: 0 0 12px rgba(0,229,255,0.15);
+}
+
+/* Right: status pills */
+.ch-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.ch-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.ch-status-icon {
+  font-size: 1.1rem;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.ch-status-label {
+  font-size: 0.58rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.ch-status-val {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ch-status-val.green  { color: var(--success); }
+.ch-status-val.yellow { color: var(--warning); }
+.ch-status-val.red    { color: var(--danger); }
+
+.ch-pulse {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: status-pulse 1.5s ease-in-out infinite;
+}
+
+.ch-weather {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.85rem;
+  color: var(--warning);
+}
+
+.ch-weather span { font-size: 0.82rem; color: var(--text-primary); font-weight: 600; }
+
+@media (max-width: 1400px) {
+  .ch-status-pill.city, .ch-status-pill.emergency { display: none; }
+}
+@media (max-width: 1100px) {
+  .ch-status-pill.health { display: none; }
+  .ch-weather { display: none; }
+}
+@media (max-width: 900px) {
+  .ch-nav { display: none; }
+}

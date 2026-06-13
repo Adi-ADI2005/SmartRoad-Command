@@ -1,0 +1,121 @@
+.ctrl-wrapper {
+  padding: 14px;
+  flex-shrink: 0;
+}
+
+.ctrl-body {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+/* ── Traffic light ── */
+.ctrl-tl-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ctrl-tl-inner {
+  width: 74px;
+}
+
+.tl-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ctrl-sig-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ── Right side ── */
+.ctrl-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* ── Signal buttons ── */
+.ctrl-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.ctrl-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  text-align: left;
+}
+.ctrl-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.ctrl-btn-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  transition: box-shadow 0.3s;
+}
+
+.ctrl-btn-lbl {
+  flex: 1;
+}
+
+.ctrl-ripple {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* ── Info rows ── */
+.ctrl-info {
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ctrl-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.68rem;
+}
+
+.ctrl-info-row span:first-child {
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

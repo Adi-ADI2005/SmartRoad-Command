@@ -1,0 +1,238 @@
+.cam-wrapper {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.cam-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cam-hdr-left { display: flex; align-items: center; gap: 12px; }
+
+.cam-live-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(239,68,68,0.15);
+  border: 1px solid rgba(239,68,68,0.5);
+  color: #ff6b6b;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.cam-live-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #ff6b6b;
+  animation: blink 1s step-end infinite;
+}
+
+.cam-hdr-btns { display: flex; gap: 6px; }
+
+.cam-btn-cmd {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  transition: all 0.2s;
+}
+.cam-btn-cmd.on  { border-color: var(--success); color: var(--success); }
+.cam-btn-cmd.off { border-color: var(--danger);  color: var(--danger); }
+.cam-btn-cmd.on.active  { background: rgba(0,230,118,0.15); box-shadow: 0 0 12px rgba(0,230,118,0.3); }
+.cam-btn-cmd.off.active { background: rgba(255,77,109,0.15); box-shadow: 0 0 12px rgba(255,77,109,0.3); }
+.cam-btn-cmd:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* Viewport — fixed height, fills the taller row */
+.cam-viewport {
+  position: relative;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 620px;
+  min-height: 620px;
+  max-height: 620px;
+  flex-shrink: 0;
+  border: 1px solid rgba(0,229,255,0.25);
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+}
+
+.cam-scanline {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(transparent, rgba(0,229,255,0.5), transparent);
+  animation: scanline 4s linear infinite;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.cam-corner {
+  position: absolute;
+  width: 22px; height: 22px;
+  border-color: var(--primary);
+  border-style: solid;
+  z-index: 6;
+  opacity: 0.8;
+}
+.cam-corner.tl { top:8px;   left:8px;  border-width: 2px 0 0 2px; }
+.cam-corner.tr { top:8px;   right:8px; border-width: 2px 2px 0 0; }
+.cam-corner.bl { bottom:8px;left:8px;  border-width: 0 0 2px 2px; }
+.cam-corner.br { bottom:8px;right:8px; border-width: 0 2px 2px 0; }
+
+.cam-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cam-offline {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cam-offline-inner { text-align: center; color: var(--text-muted); }
+.cam-offline-inner i { font-size: 3.5rem; display: block; margin-bottom: 12px; color: var(--danger); opacity: 0.4; }
+.cam-offline-inner p { font-family:'Poppins',sans-serif; font-size:0.85rem; letter-spacing:4px; color:var(--text-secondary); font-weight:600; }
+.cam-offline-inner span { font-size:0.72rem; }
+
+/* Overlays */
+.cam-ov { position: absolute; z-index: 10; }
+
+.cam-ov-tl {
+  top: 14px; left: 14px;
+  background: rgba(5,8,22,0.75);
+  border: 1px solid rgba(0,229,255,0.2);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cam-info-row {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+}
+.cam-info-row b { color: var(--primary); font-weight: 600; margin-left: 4px; }
+
+.cam-id-badge {
+  top: 14px; right: 14px;
+  background: rgba(5,8,22,0.8);
+  border: 1px solid rgba(0,229,255,0.3);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 2px;
+}
+
+.cam-ov-br {
+  bottom: 14px; left: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.cam-ai-badge, .cam-track-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0,229,255,0.12);
+  border: 1px solid rgba(0,229,255,0.3);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--primary);
+}
+.cam-track-badge {
+  background: rgba(0,255,163,0.1);
+  border-color: rgba(0,255,163,0.3);
+  color: var(--secondary);
+}
+
+/* Junction camera badge */
+.cam-junction-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0,229,255,0.12);
+  border: 1px solid rgba(0,229,255,0.35);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--primary);
+}
+
+/* Back-to-main-cam button */
+.cam-btn-reset {
+  border-color: rgba(0,229,255,0.5);
+  color: var(--primary);
+  background: rgba(0,229,255,0.08);
+}
+.cam-btn-reset:hover {
+  background: rgba(0,229,255,0.18);
+  box-shadow: 0 0 10px rgba(0,229,255,0.3);
+}
+
+/* Maximize / fullscreen button */
+.cam-btn-fs {
+  border-color: rgba(0,229,255,0.5);
+  color: var(--primary);
+  background: rgba(0,229,255,0.08);
+  transition: all 0.2s;
+}
+.cam-btn-fs:hover {
+  background: rgba(0,229,255,0.18);
+  box-shadow: 0 0 12px rgba(0,229,255,0.35);
+}
+
+/* Fullscreen overlay — covers the entire viewport */
+.cam-fs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #050816;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+}
+
+/* Fullscreen viewport fills remaining height */
+.cam-viewport-fs {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  flex: 1;
+}

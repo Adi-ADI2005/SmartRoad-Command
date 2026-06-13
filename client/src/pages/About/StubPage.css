@@ -1,0 +1,205 @@
+.stub-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.stub-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.stub-icon {
+  width: 80px; height: 80px;
+  background: var(--primary-dim);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  color: var(--primary);
+  box-shadow: var(--glow);
+  margin: 0 auto 1.5rem;
+}
+
+.stub-hero h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: var(--primary);
+  text-shadow: var(--glow);
+  margin-bottom: 1rem;
+}
+
+.stub-hero p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.stub-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.stub-card {
+  padding: 2rem;
+  text-align: center;
+  cursor: default;
+  transition: all .3s;
+}
+
+.stub-card i {
+  font-size: 2.5rem;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.stub-card h3 {
+  font-family: 'Orbitron', monospace;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: .75rem;
+}
+
+.stub-card p {
+  font-size: .88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Form page ── */
+.stub-form {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stub-form input,
+.stub-form textarea {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .85rem 1rem;
+  color: var(--text-primary);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: .95rem;
+  outline: none;
+  transition: border-color .2s;
+  resize: vertical;
+}
+
+.stub-form input:focus,
+.stub-form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-dim);
+}
+
+.stub-form button {
+  font-family: 'Orbitron', monospace;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: .9rem;
+  background: var(--primary);
+  color: #050816;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.stub-form button:hover { opacity: .85; }
+
+/* ── Timeline ── */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.tl-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.tl-dot {
+  width: 40px; height: 40px;
+  background: var(--primary-dim);
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--primary);
+  flex-shrink: 0;
+  font-size: .9rem;
+  box-shadow: var(--glow);
+}
+
+.tl-content {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.tl-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: .5rem;
+  flex-wrap: wrap;
+}
+
+.tl-year {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .75rem;
+  color: var(--primary);
+}
+
+.tl-tag {
+  font-family: 'Orbitron', monospace;
+  font-size: .6rem;
+  padding: .2rem .6rem;
+  border-radius: 10px;
+  background: var(--primary-dim);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+.tl-content h3 {
+  font-family: 'Orbitron', monospace;
+  font-size: .8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .35rem;
+  letter-spacing: 1px;
+}
+
+.tl-content p {
+  font-size: .85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}

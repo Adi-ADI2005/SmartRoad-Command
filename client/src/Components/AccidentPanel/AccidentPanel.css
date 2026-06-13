@@ -1,0 +1,301 @@
+.acp-wrapper {
+  padding: 16px;
+}
+
+/* critical pulse border */
+.acp--critical {
+  animation: acp-border-pulse 1.2s ease-in-out infinite;
+  border-color: rgba(255, 32, 32, 0.5) !important;
+}
+@keyframes acp-border-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 32, 32, 0); }
+  50%       { box-shadow: 0 0 0 6px rgba(255, 32, 32, 0.2); }
+}
+
+/* ── Header ── */
+.acp-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.acp-sev-badge {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+/* ── Body layout ── */
+.acp-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 1000px) { .acp-body { grid-template-columns: 1fr; } }
+
+/* ── Status banner ── */
+.acp-status-banner {
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.acp-status-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.acp-status-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.acp-status-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.acp-status-sub {
+  font-size: 0.65rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* ── Metrics ── */
+.acp-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.acp-metric-col { display: flex; flex-direction: column; gap: 8px; }
+
+.acp-metric-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.acp-metric-label {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #475569;
+  margin-bottom: 3px;
+}
+
+.acp-metric-value {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.acp-risk-bar-bg {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.acp-risk-bar-fill { height: 100%; border-radius: 3px; }
+
+/* ── Stat rows ── */
+.acp-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.acp-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.67rem;
+}
+
+.acp-stat-label {
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 0.6rem;
+}
+
+.acp-stat-value {
+  font-weight: 600;
+  max-width: 60%;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Right column ── */
+.acp-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Golden Hour ── */
+.acp-golden {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: center;
+}
+
+.acp-golden--active {
+  background: rgba(255, 77, 109, 0.06);
+  border-color: rgba(255, 77, 109, 0.3);
+}
+
+.acp-golden-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.acp-golden-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FF4D6D;
+  display: inline-block;
+}
+
+.acp-golden-time {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.acp-golden-sub {
+  font-size: 0.6rem;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.acp-golden-bar-bg {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.acp-golden-bar-fill { height: 100%; border-radius: 4px; }
+
+/* ── Emergency Dispatch ── */
+.acp-dispatch {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.acp-dispatch-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.acp-dispatched-tag {
+  font-size: 0.55rem;
+  color: #FF4D6D;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* ── Unit cards ── */
+.acp-unit-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.acp-unit-hdr {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+}
+
+.acp-unit-hdr > i {
+  font-size: 0.8rem;
+  color: #00E5FF;
+}
+
+.acp-unit-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #64748b;
+  flex: 1;
+}
+
+.acp-unit-badge {
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+.acp-unit-badge--alert   { background: rgba(255,77,109,0.2);   color: #FF4D6D; }
+.acp-unit-badge--standby { background: rgba(100,116,139,0.2);  color: #64748b; }
+.acp-unit-badge--dispatched { background: rgba(255,32,32,0.25); color: #FF2020; }
+
+.acp-unit-name {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+}
+
+.acp-unit-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 0.6rem;
+  color: #475569;
+  flex-wrap: wrap;
+}
+
+.acp-unit-meta i { color: #334155; margin-right: 2px; }

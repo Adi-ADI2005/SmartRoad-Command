@@ -1,0 +1,63 @@
+.signal-wrapper { padding: 1.25rem; }
+
+.signal-display {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.signal-housing {
+  background: linear-gradient(180deg, #111827, #1f2937);
+  border: 2px solid #374151;
+  border-radius: 14px;
+  padding: 1rem .85rem;
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.signal-light {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: #0f172a;
+  border: 2px solid #1e293b;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .4s;
+}
+
+.signal-light.red.active    { background: #EF4444; box-shadow: 0 0 20px #EF4444, 0 0 40px rgba(239,68,68,0.4); }
+.signal-light.yellow.active { background: #F59E0B; box-shadow: 0 0 20px #F59E0B, 0 0 40px rgba(245,158,11,0.4); }
+.signal-light.green.active  { background: #22C55E; box-shadow: 0 0 20px #22C55E, 0 0 40px rgba(34,197,94,0.4); }
+
+.signal-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  pointer-events: none;
+}
+.signal-light.red.active    .signal-ring { border-color: #EF4444; }
+.signal-light.yellow.active .signal-ring { border-color: #F59E0B; }
+.signal-light.green.active  .signal-ring { border-color: #22C55E; }
+
+.signal-info { flex: 1; }
+
+.signal-status-text {
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: var(--glow);
+  margin-bottom: .4rem;
+}
+
+.signal-hint {
+  font-size: .8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}

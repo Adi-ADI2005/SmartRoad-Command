@@ -1,0 +1,58 @@
+.ap-wrapper { padding: 14px; }
+
+.ap-body {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: auto auto;
+  gap: 12px;
+  align-items: start;
+}
+
+.ap-gauge-wrap {
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ap-gauge-svg { width: 100%; }
+
+.ap-sev-badge {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 3px 10px;
+  border-radius: 14px;
+  border: 1px solid;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ap-recs {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ap-recs li {
+  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1.4;
+}
+
+.ap-chart { grid-column: 2; }
+
+.ap-chart-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
