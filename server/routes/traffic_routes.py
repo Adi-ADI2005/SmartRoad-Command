@@ -16,6 +16,7 @@ from extensions import monitor
 from services.realtime_analytics import RealtimeAnalytics
 from ml.severity_classifier import classify
 from services.emergency_dispatch import dispatch_info, nearest_hospital, nearest_police, nearest_ambulance
+from services.alert_service import send_accident_alert, get_alert_history
 
 router = APIRouter(prefix="/api")
 
@@ -51,6 +52,7 @@ class _State:
 
         self._tick = 0
         self.ws_clients: list = []
+        self.last_alert: dict = {}        # most recent accident alert, broadcast via WS
         self.alert_log = [
             {"id": 1, "type": "warning", "message": "Heavy traffic on Main St",              "time": "09:12"},
             {"id": 2, "type": "danger",  "message": "Accident risk HIGH at Junction A",       "time": "09:08"},
@@ -149,6 +151,7 @@ def _tick_accident(snap) -> dict:
             state.accident_active    = True
             state.accident_start_ts  = now
             state.accident_duration  = random.uniform(40, 100)
+            location                 = "NH-65 Junction 7, Hyderabad"
             state.accident_data      = {
                 "detected":               True,
                 "severity":               result.severity,
@@ -158,12 +161,46 @@ def _tick_accident(snap) -> dict:
                 "estimated_response_time": result.estimated_response_time,
                 "vehicles_involved":      result.vehicles_involved,
                 "accident_type":          result.accident_type,
-                "location":               "NH-65 Junction 7, Hyderabad",
+                "location":               location,
                 "composite_score":        result.composite_score,
             }
             if result.severity in ("HIGH", "CRITICAL") and not state.golden_hour_active:
                 state.golden_hour_active   = True
                 state.golden_hour_start_ts = now
+
+            # ── Fire alert: capture snapshot + notify police & hospital ──────
+            try:
+                live_frame = None
+                if state.camera_on:
+                    raw = monitor.get_frame()
+                    if raw[0] is not None:
+                        live_frame = raw[0]
+
+                alert = send_accident_alert(
+                    severity=result.severity,
+                    location=location,
+                    frame=live_frame,
+                )
+
+                if alert.get("sent"):
+                    state.last_alert = alert   # broadcast via WS to frontend
+
+                from datetime import datetime
+                ts_label = datetime.now().strftime("%H:%M")
+                state.alert_log.insert(0, {
+                    "id":      int(now),
+                    "type":    "danger" if result.severity in ("HIGH", "CRITICAL") else "warning",
+                    "message": (
+                        f"ACCIDENT DETECTED — {result.severity} severity "
+                        f"at {location}. "
+                        f"Police {alert.get('police_phone','—')} & "
+                        f"Hospital {alert.get('hospital_phone','—')} alerted."
+                    ),
+                    "time":    ts_label,
+                })
+                state.alert_log = state.alert_log[:20]
+            except Exception as _ae:
+                print(f"[alert] Failed to send accident alert: {_ae}")
 
     # Compute golden hour remaining
     golden_remaining = None
@@ -302,6 +339,45 @@ def analytics_endpoint():
 @router.get("/alerts")
 def alerts():
     return {"alerts": state.alert_log}
+
+
+@router.get("/alerts/history")
+def alerts_history():
+    """Return persistent accident alert log from disk."""
+    return {"alerts": get_alert_history()}
+
+
+@router.get("/alerts/snapshots")
+def alert_snapshots():
+    """Return list of accident snapshot filenames saved to disk."""
+    from pathlib import Path
+    snap_dir = Path(__file__).parent.parent / "data" / "accident_snapshots"
+    try:
+        files = sorted(snap_dir.glob("*.jpg"), reverse=True)
+        return {
+            "snapshots": [
+                {
+                    "filename": f.name,
+                    "url": f"/api/alerts/snapshot/{f.name}",
+                    "size_kb": round(f.stat().st_size / 1024, 1),
+                }
+                for f in files[:20]
+            ]
+        }
+    except Exception as e:
+        return {"snapshots": [], "error": str(e)}
+
+
+@router.get("/alerts/snapshot/{filename}")
+def alert_snapshot_file(filename: str):
+    """Serve a saved accident snapshot image."""
+    from pathlib import Path
+    from fastapi.responses import FileResponse
+    snap_dir = Path(__file__).parent.parent / "data" / "accident_snapshots"
+    path = snap_dir / filename
+    if not path.exists() or not path.is_file():
+        raise HTTPException(404, detail="Snapshot not found")
+    return FileResponse(str(path), media_type="image/jpeg")
 
 
 @router.get("/accident/predict")
@@ -475,6 +551,9 @@ async def broadcast_loop():
 
                 # ── Emergency dispatch ──
                 "emergency": dispatch,
+
+                # ── Latest accident alert (shown in frontend modal) ──
+                "last_alert": state.last_alert,
 
                 "timestamp": time.time(),
                 "tick":      state._tick,

@@ -10,6 +10,7 @@ import RealtimeCharts  from '../../Components/Charts/Charts'
 import AccidentPanel   from '../../Components/AccidentPanel/AccidentPanel'
 import AlertCenter     from '../../Components/Alerts/Alerts'
 import Controls        from '../../Components/Controls/Controls'
+import AccidentAlert   from '../../Components/AccidentAlert/AccidentAlert'
 import './Dashboard.css'
 
 const EMPTY_ACCIDENT = {
@@ -59,6 +60,8 @@ export default function Dashboard() {
   const [activeCam, setActiveCam] = useState(null)
   const cameraRef = useRef(null)
 
+  const [lastAlert, setLastAlert] = useState(null)
+
   useEffect(() => {
     const handler = (data) => {
       setLiveData(prev => ({
@@ -71,6 +74,9 @@ export default function Dashboard() {
         accident:    data.accident    ?? prev.accident,
         emergency:   data.emergency   ?? prev.emergency,
       }))
+      if (data.last_alert && data.last_alert.sent) {
+        setLastAlert(data.last_alert)
+      }
       setConnected(true)
     }
     connectWS(handler)
@@ -137,6 +143,9 @@ export default function Dashboard() {
 
       {/* ── Row 5: Alert Center ── */}
       <AlertCenter />
+
+      {/* ── Accident Alert Modal (full-screen emergency popup) ── */}
+      <AccidentAlert accident={liveData.accident} lastAlert={lastAlert} />
     </motion.div>
   )
 }

@@ -24,20 +24,20 @@ class ServiceUnit:
 # ── Dataset — Hyderabad area (swap coordinates for any city) ──────────────────
 UNITS: List[ServiceUnit] = [
     # Hospitals
-    ServiceUnit("City Trauma & Neuro Center",    "hospital", 17.3850, 78.4867, "+91-40-2345-6789", trauma=True,  beds=520),
-    ServiceUnit("Apollo Hospitals Jubilee Hills", "hospital", 17.4200, 78.4500, "+91-40-2360-0000", trauma=True,  beds=850),
-    ServiceUnit("NIMS Medical College",          "hospital", 17.4100, 78.4600, "+91-40-2349-0000", trauma=True,  beds=700),
-    ServiceUnit("St. Mary's General Hospital",   "hospital", 17.3950, 78.4700, "+91-40-2345-1234", trauma=False, beds=320),
-    ServiceUnit("Govt. General Hospital Afzalgunj","hospital",17.3750, 78.4950, "+91-40-2460-0000", trauma=False, beds=1200),
-    ServiceUnit("Yashoda Hospital Secunderabad",  "hospital", 17.4350, 78.5100, "+91-40-2784-0000", trauma=True,  beds=450),
+    ServiceUnit("City Trauma & Neuro Center",     "hospital", 17.3850, 78.4867, "+918917559113", trauma=True,  beds=520),
+    ServiceUnit("Apollo Hospitals Jubilee Hills",  "hospital", 17.4200, 78.4500, "+91-40-2360-0000", trauma=True,  beds=850),
+    ServiceUnit("NIMS Medical College",            "hospital", 17.4100, 78.4600, "+91-40-2349-0000", trauma=True,  beds=700),
+    ServiceUnit("St. Mary's General Hospital",     "hospital", 17.3950, 78.4700, "+91-40-2345-1234", trauma=False, beds=320),
+    ServiceUnit("Govt. General Hospital Afzalgunj","hospital", 17.3750, 78.4950, "+91-40-2460-0000", trauma=False, beds=1200),
+    ServiceUnit("Yashoda Hospital Secunderabad",   "hospital", 17.4350, 78.5100, "+91-40-2784-0000", trauma=True,  beds=450),
     # Police
-    ServiceUnit("Traffic Police Control Room",    "police",   17.3800, 78.4900, "+91-40-2746-0000"),
-    ServiceUnit("Central Police Station",         "police",   17.3900, 78.4800, "+91-40-2745-0000"),
-    ServiceUnit("North Zone Police HQ",           "police",   17.4000, 78.4750, "+91-40-2747-0000"),
-    ServiceUnit("Commissioner's Task Force",      "police",   17.3700, 78.5000, "+91-40-2744-0000"),
+    ServiceUnit("Traffic Police Control Room",     "police",   17.3800, 78.4900, "+918280140085"),
+    ServiceUnit("Central Police Station",          "police",   17.3900, 78.4800, "+91-40-2745-0000"),
+    ServiceUnit("North Zone Police HQ",            "police",   17.4000, 78.4750, "+91-40-2747-0000"),
+    ServiceUnit("Commissioner's Task Force",       "police",   17.3700, 78.5000, "+91-40-2744-0000"),
     # Ambulance bases
-    ServiceUnit("EMRI 108 Ambulance Station A",   "ambulance_base", 17.3870, 78.4820, "+91-108"),
-    ServiceUnit("EMRI 108 Ambulance Station B",   "ambulance_base", 17.4050, 78.4680, "+91-108"),
+    ServiceUnit("EMRI 108 Ambulance Station A",    "ambulance_base", 17.3870, 78.4820, "+91-108"),
+    ServiceUnit("EMRI 108 Ambulance Station B",    "ambulance_base", 17.4050, 78.4680, "+91-108"),
 ]
 
 # Incident location — in production comes from GPS / map click

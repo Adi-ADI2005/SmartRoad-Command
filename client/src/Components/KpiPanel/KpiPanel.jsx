@@ -41,13 +41,19 @@ const buildCards = (d) => [
     up: (d.congestion||0) < 50,
   },
   {
-    id: 'occupancy',
-    icon: 'bi-grid-fill',
-    label: 'Road Use',
-    end: Math.round(d.occupancy || 0),
-    suffix: '%',
-    color: '#4FC3F7',
-    trend: '+6.2%', up: false,
+    id: 'accident_severity',
+    icon: 'bi-exclamation-triangle-fill',
+    label: 'Accident Severity',
+    end: d.accident?.detected ? Math.round(d.accident?.composite_score || 0) : 0,
+    suffix: d.accident?.detected ? '%' : '',
+    text: d.accident?.detected ? null : 'NONE',
+    color: d.accident?.detected
+      ? (d.accident?.severity === 'CRITICAL' ? '#FF4D6D'
+        : d.accident?.severity === 'HIGH'     ? '#FF7043'
+        : '#FFB020')
+      : '#00E676',
+    trend: d.accident?.detected ? d.accident?.severity : 'CLEAR',
+    up: !d.accident?.detected,
   },
   {
     id: 'accuracy',
