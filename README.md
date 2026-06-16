@@ -1,20 +1,7 @@
-<![CDATA[<div align="center">
-
 # 🚦 SmartRoad Command
 ### AI Traffic Management System
 
-[![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
-[![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-FF6B35?style=for-the-badge)](https://ultralytics.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-**Real-time AI-powered traffic monitoring, adaptive signal control, accident prediction, and emergency dispatch — all in one command center.**
-
-[Features](#-features) • [Purpose](#-purpose--impact) • [Tech Stack](#-technology-used) • [Getting Started](#-getting-started) • [Project Structure](#-project-structure) • [Enhancements](#-future-enhancements) • [Developer](#-developer)
-
-</div>
 
 ---
 
@@ -322,10 +309,4 @@ If you find this project useful:
 - Support smart infrastructure innovation 🚦
 
 ---
-
-<div align="center">
-
 Built with ❤️ by **Aditya Mishra** using **FastAPI** + **React** + **YOLOv8**
-
-</div>
-]]>

@@ -1,4 +1,4 @@
-<![CDATA[# 📋 SmartRoad Command — Project Overview
+# 📋 SmartRoad Command — Project Overview
 
 > A comprehensive technical reference for the SmartRoad Command AI Traffic Management System.
 
@@ -258,4 +258,3 @@ uvicorn server.app:app --host 0.0.0.0 --port 8000
 ---
 
 *SmartRoad Command — Built with FastAPI + React + YOLOv8*
-]]>
